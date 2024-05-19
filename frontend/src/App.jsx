@@ -4,6 +4,10 @@ import Form from './components/Form';
 import SignIn from './components/SignIn';
 import Messages from './components/Messages';
 import { utils } from 'near-api-js';
+import icon1 from './images/icon1.png'
+import icon2 from './images/icon2.png'
+import icon3 from './images/icon3.png'
+import logo from './images/logo.png'
 
 const CONTRACT_NAME = "jacobtest2.testnet"
 const wallet = new Wallet({ createAccessKeyFor: CONTRACT_NAME })
@@ -90,29 +94,101 @@ function App() {
   const signOut = () => { wallet.signOut() }
 
   return (
+
+  
     <main>
-      <table>
+      <table class="button-container">
         <tr>
-          <td><h1>📖 NEAR Guest Book</h1></td>
-          <td>{isSignedIn
+          <td>
+            <img src={logo}></img>
+          </td>
+          <td>
+      {isSignedIn
             ? <button onClick={signOut}>Log out</button>
             : <button onClick={signIn}>Log in</button>
-          }</td>
+          }
+          </td>
         </tr>
       </table>
 
+      
       <hr />
+        <body>
+        <div class="container">
+        <div class="grey-div">
+            <h2>Where innovation meets security in auto insurance</h2>
+            <p>By integrating blockchain technology, we provide unparalleled security and transparency in our claims process.</p>
+        </div>
+
+        <div class="white1-div">
+          <img src={icon1}></img>
+        </div>
+    </div>
+        </body>
+
+        <body>
+          <div class="container">
+            <div class="box">
+            <h3> P2P </h3>  
+            <p> Connects people and creates a more transparent and community-driven insurance experience. </p>
+            </div>
+            <div class="box">
+            <h3> Machine Learning </h3> 
+            <p> Accurately assess risk and detect fraudulent claims in real-time. </p> 
+            </div>
+            <div class="box">            
+            <h3> Blockchain </h3> 
+            <p> Ensure secure, immutable records for all transactions and claims, enhancing trust and efficiency. </p> 
+            </div>
+          </div>
+        </body>
+
+        <body>
+        <div class="container">
+        <div class="white2-div">
+        <img src={icon2}></img>
+        </div>
+
+        <div class="grey-div">
+            <h2>Onboarding</h2>
+            <p>Joining our insurance pool is simple and secure. By connecting your wallet via the NEAR API, you can seamlessly enter our pool and start benefiting from our cutting-edge insurance solutions.</p>
+        </div>
+    </div>
+        </body>
+
+        <body>
+        <div class="container">
+        <div class="white-div">
+            <h4>Claim Today!</h4>
+            <p>Fill in the form below for your claim evaluation.</p>
+        </div>
+
+        <div class="white3-div">
+          <img src={icon3}></img>
+        </div>
+    </div>
+        </body>
+
       {isSignedIn
         ? <Form onSubmit={onSubmit} currentAccountId={wallet.accountId} />
         : <SignIn />
       }
 
-      <hr />
 
-      {!!messages.length && <Messages messages={messages} />}
+      <body>
+        <div class="container">
+        <div class="white-div">
+        </div>
+        </div>
+      </body>
 
     </main>
   )
 }
 
 export default App
+
+/*  
+{!!messages.length && <Messages messages={messages} />}
+was between <hr /> & </main>, line 176
+*/
